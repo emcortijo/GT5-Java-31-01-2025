@@ -40,7 +40,7 @@ public class Producto {
         System.out.println("Nombre del producto: "+nombre);
         System.out.println("Precio: $"+String.format("%.2f",precio));
         System.out.println("Cantidad de inventario: "+cantidad);
-
+        System.out.println("-------");
     }
 
     public static int getInventarioTotal(){

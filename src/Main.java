@@ -53,6 +53,7 @@ public class Main {
             if (producto.getNombre().equalsIgnoreCase(productoParaEliminar)) {
                 productos.remove(producto);
                 eliminado = true;
+                break;
             }
         }
         if (!eliminado) {
@@ -61,7 +62,7 @@ public class Main {
     }
 
     private static void modificarPrecio(ArrayList<Producto> prods){
-        String name = JOptionPane.showInputDialog("Escriba el nombre del producto"
+        String name = JOptionPane.showInputDialog("Escriba el nombre del producto "
             + "cuyo precio desea modificar:");
 
         boolean found = false;
