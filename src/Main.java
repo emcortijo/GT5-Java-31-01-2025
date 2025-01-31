@@ -65,7 +65,7 @@ public class Main {
 
         for (int i = 0; i < prods.size(); i++) {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
-                double newStock = Double.parseDouble(JOptionPane.showInputDialog(
+                int newStock = Integer.parseInt(JOptionPane.showInputDialog(
                     "Escriba el nuevo stock del producto:"));
                 prods.get(i).setCantidad(newStock);
                 break;
