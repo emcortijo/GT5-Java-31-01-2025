@@ -49,13 +49,19 @@ public class Main {
         String name = JOptionPane.showInputDialog("Escriba el nombre del producto"
             + "cuyo precio desea modificar:");
 
-        for (int i = 0; i < prods.size(); i++) {
+        boolean found = false;
+        for (int i = 0; i < prods.size() && !found; i++) {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
                 double newPrice = Double.parseDouble(JOptionPane.showInputDialog(
                     "Escriba el nuevo precio del producto:"));
                 prods.get(i).setPrecio(newPrice);
-                break;
+                found = true;
             }
+        }
+
+        if(!found){
+            System.out.println("No se ha encontrado el producto con el nombre: "
+            + name);
         }
     }
 
@@ -63,13 +69,19 @@ public class Main {
         String name = JOptionPane.showInputDialog("Escriba el nombre del producto"
             + "cuyo stock desea modificar:");
 
-        for (int i = 0; i < prods.size(); i++) {
+        boolean found = false;
+        for (int i = 0; i < prods.size() && !found; i++) {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
                 int newStock = Integer.parseInt(JOptionPane.showInputDialog(
                     "Escriba el nuevo stock del producto:"));
                 prods.get(i).setCantidad(newStock);
-                break;
+                found = true;
             }
+        }
+
+        if(!found){
+            System.out.println("No se ha encontrado el producto con el nombre: "
+                + name);
         }
     }
 }
