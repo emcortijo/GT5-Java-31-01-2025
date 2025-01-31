@@ -54,7 +54,11 @@ public class Main {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
                 double newPrice = Double.parseDouble(JOptionPane.showInputDialog(
                     "Escriba el nuevo precio del producto:"));
-                prods.get(i).setPrecio(newPrice);
+                if(newPrice < 0){
+                    System.out.println("El nuevo precio del producto debe ser positivo");
+                } else {
+                    prods.get(i).setPrecio(newPrice);
+                }
                 found = true;
             }
         }
@@ -74,7 +78,11 @@ public class Main {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
                 int newStock = Integer.parseInt(JOptionPane.showInputDialog(
                     "Escriba el nuevo stock del producto:"));
-                prods.get(i).setCantidad(newStock);
+                if(newStock < 0){
+                    System.out.println("El nuevo stock del producto debe ser positivo");
+                } else {
+                    prods.get(i).setCantidad(newStock);
+                }
                 found = true;
             }
         }
