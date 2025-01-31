@@ -67,6 +67,7 @@ public class Main {
         boolean found = false;
         for (int i = 0; i < prods.size() && !found; i++) {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
+
                 double newPrice = Double.parseDouble(JOptionPane.showInputDialog(
                     "Escriba el nuevo precio del producto:"));
                 if(newPrice < 0){
@@ -91,13 +92,17 @@ public class Main {
         boolean found = false;
         for (int i = 0; i < prods.size() && !found; i++) {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
-                int newStock = Integer.parseInt(JOptionPane.showInputDialog(
-                    "Escriba el nuevo stock del producto:"));
-                if(newStock < 0){
-                    System.out.println("El nuevo stock del producto debe ser positivo");
-                } else {
-                    prods.get(i).setCantidad(newStock);
+                try{
+                    int newStock = Integer.parseInt(JOptionPane.showInputDialog("Escriba el nuevo stock del producto:"));
+                    if(newStock<0) {
+                        System.out.println("Introduzca una cantidad válida");
+                        return;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Introduzca una cantidad válida");
+                    return;
                 }
+                prods.get(i).setCantidad(newStock);
                 found = true;
             }
         }
@@ -110,8 +115,28 @@ public class Main {
 
     public static void addProducto(ArrayList<Producto> productos) {
         String nombreDeProducto = JOptionPane.showInputDialog("Ingrese el nombre del producto: ");
-        double precioDeProducto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese precio del producto: "));
-        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad en inventario de producto: "));
+        try{
+            double precioDeProducto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese precio del producto: "));
+            if(precioDeProducto<0) {
+                System.out.println("Introduzca un precio válido");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Introduzca un precio válido ");
+            return;
+        }
+
+        try{
+            int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad en inventario de producto: "));
+            if(cantidad<0) {
+                System.out.println("Introduzca una cantidad válida");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Introduzca una cantidad ");
+            return;
+        }
+
 
         productos.add(new Producto(nombreDeProducto, precioDeProducto, cantidad));
     }
