@@ -92,8 +92,9 @@ public class Main {
         boolean found = false;
         for (int i = 0; i < prods.size() && !found; i++) {
             if (prods.get(i).getNombre().equalsIgnoreCase(name)) {
+                int newStock;
                 try{
-                    int newStock = Integer.parseInt(JOptionPane.showInputDialog("Escriba el nuevo stock del producto:"));
+                    newStock = Integer.parseInt(JOptionPane.showInputDialog("Escriba el nuevo stock del producto:"));
                     if(newStock<0) {
                         System.out.println("Introduzca una cantidad válida");
                         return;
@@ -115,8 +116,9 @@ public class Main {
 
     public static void addProducto(ArrayList<Producto> productos) {
         String nombreDeProducto = JOptionPane.showInputDialog("Ingrese el nombre del producto: ");
+        double precioDeProducto;
         try{
-            double precioDeProducto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese precio del producto: "));
+            precioDeProducto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese precio del producto: "));
             if(precioDeProducto<0) {
                 System.out.println("Introduzca un precio válido");
                 return;
@@ -126,8 +128,9 @@ public class Main {
             return;
         }
 
+        int cantidad;
         try{
-            int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad en inventario de producto: "));
+            cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad en inventario de producto: "));
             if(cantidad<0) {
                 System.out.println("Introduzca una cantidad válida");
                 return;
